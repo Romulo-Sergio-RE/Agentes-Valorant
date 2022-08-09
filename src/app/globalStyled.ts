@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyles = createGlobalStyle`
     html{
         font-size: 16px;
-        font-family: 'Oxanium';
+        font-family: 'Oxanium', monospace;
     }
     body{
         background: rgba(126, 126, 126, 0.8);
@@ -12,6 +12,7 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        
     }
 `
 ;
