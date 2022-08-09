@@ -11,16 +11,15 @@ export const Container = styled.div`
     .logo-valorant{
         color: #ECE8E1;
         text-transform:uppercase;
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         font-weight: 700;
-        
     }
     .titulo-agentes{
         border-bottom: 1px solid #FFFFFF;
         h3{
             color: #ECE8E1;
             text-transform:uppercase;
-            font-size: 1.125rem;
+            font-size: 1.4rem;
             font-weight: 300;
             margin-bottom: 0.625rem;
         }
