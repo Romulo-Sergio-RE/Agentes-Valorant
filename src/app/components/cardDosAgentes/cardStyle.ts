@@ -13,7 +13,7 @@ export const Container =  styled.div`
     .div-imagem{
         width: 235px;
         height: 197px;
-        background-color: #D9D9D9;
+        background-color: #FF4655;
         border-radius: 20px;
     }
     .titulo-nome-funcao{
