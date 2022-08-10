@@ -1,13 +1,8 @@
-import { useEffect } from "react"
+import { useContext, useEffect } from "react"
+import { AgentsContext } from "../context/AgentsValorantContext";
 
 export const ApiVava = () =>{
+    
 
-    const url = 'https://valorant-api.com/v1/agents'
-
-    useEffect(() => {
-        fetch(url)
-            .then((response) => response.json())
-            .then((data) => console.log(data.data))
-            
-    }, []);
+    
 }

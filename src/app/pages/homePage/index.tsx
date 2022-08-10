@@ -1,27 +1,30 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Header } from "../../components/header"
 import { Modal } from "../../components/modal"
+import { AgentsContext } from "../../context/AgentsValorantContext";
 import { Container } from "./homePageStyle"
 
 export const HomePage=()=>{
-    const[agents,setAgents]=useState<any[]>([]);
+    
+    const {agentes,setAgentes} = useContext(AgentsContext);
 
     const url = 'https://valorant-api.com/v1/agents'
-
+    
     useEffect(() => {
         fetch(url)
             .then((response) => response.json())
-            .then((data) => setAgents(data.data))
-            
+            .then((data) => setAgentes(data.data))
     }, []);
 
-    console.log(agents)
+    console.log(agentes)
+
     return(
         <div>
             <Header tituloBnt="Meus Favoritos"/>
             {
-                agents.map((val,id)=>{
+
+                agentes.map((val,id)=>{
                     return(
                         <div key={id}>
                             <p>{val.displayName}</p>
