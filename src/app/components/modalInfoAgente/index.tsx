@@ -18,21 +18,35 @@ export const Modal:React.FC<ImodalProps> =(props)=>{
     const {favoritos, setfavoritos} = useContext(FavoritosContext);
 
     const addFavoritosAgentes = ()=>{
-        setfavoritos([...favoritos, props])
+        if(favoritos.find((a)=> a.nomeAgente === props.nomeAgente)){
+            alert("Esse Agente ja foi FAVORITADO")
+        }else{
+            setfavoritos([...favoritos, props])
+        }
     }
+
+    const removerFavoritosAgentes = ()=>{
+        setfavoritos(favoritos.filter((agente)=> agente.nomeAgente !== props.nomeAgente))
+    }
+
     console.log(favoritos)
     return(
         <ContainerModal>
             {props.tipoModal === "add"?
                 <Container >
-                    <img src={props.imagemAgenteModal} className="imagem-agente" alt={"imagem-do-agente-card"}/>
+                    <img 
+                        src={props.imagemAgenteModal} 
+                        className="imagem-agente" 
+                        alt={"imagem-do-agente-card"}
+                    />
                     <div className="info-agentes">
                         <p>Nome: <span>{props.nomeAgente}</span></p>
                         <p>Função: <span>Iniciadora</span></p>
                         <p>Biografia: </p>
                         <p><span>{props.biografiaAgente}</span></p>
-                        <div className="ButtonP" >
+                        <div className="ButtonP" onClick={props.onClose} >
                             <BntPrincipal onClickBnt={addFavoritosAgentes}>
+                                <div onClick={props.onClose}></div>
                                 Add Favoritos
                             </BntPrincipal>
                         </div>
@@ -45,14 +59,18 @@ export const Modal:React.FC<ImodalProps> =(props)=>{
                 </Container>
                 :
                 <Container>
-                    <img src={props.imagemAgenteModal} className="imagem-agente" alt={"imagem-do-agente-card"}/>
+                    <img 
+                        src={props.imagemAgenteModal} 
+                        className="imagem-agente" 
+                        alt={"imagem-do-agente-card"}
+                    />
                     <div className="info-agentes">
                         <p>Nome: <span>{props.nomeAgente}</span></p>
                         <p>Função: <span>Iniciadora</span></p>
                         <p>Biografia: </p>
                         <p><span>{props.biografiaAgente}</span></p>
                         <div className="ButtonP">
-                            <BntPrincipal onClickBnt={()=>{}}>
+                            <BntPrincipal onClickBnt={removerFavoritosAgentes}>
                                 Remover Favoritos
                             </BntPrincipal>
                         </div>

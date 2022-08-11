@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react"
 import { FavoritosContext } from "../../context/favoritosAgenteContext"
-import { Modal } from "../modal"
-import { Container } from "./cardStyle"
+import { Modal } from "../modalInfoAgente"
+import { Container, ContainerTeste } from "./cardStyle"
 
 interface IInfoAgentes{
     nome: string,
@@ -15,7 +15,7 @@ interface IInfoAgentes{
 export const CardAgentes:React.FC<IInfoAgentes> = (props)=>{
     
     const[isModalAberto, setIsModalAberto] = useState(false)
-
+    
     return(
         <>
         {isModalAberto?
@@ -30,7 +30,7 @@ export const CardAgentes:React.FC<IInfoAgentes> = (props)=>{
             : 
             null
         }
-        <Container onClick={() => setIsModalAberto(true)}>
+        <Container onClick={() => setIsModalAberto(true)} className="a">
             <img src={props.imagem} className="div-imagem" alt={"imagem-do-agente-card"}/>
             <div>
                 <p className="titulo-nome-funcao">Nome: <span>{props.nome}</span></p>

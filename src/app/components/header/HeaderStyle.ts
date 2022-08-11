@@ -16,7 +16,8 @@ export const Container = styled.div`
     }
     .titulo-agentes{
         border-bottom: 1px solid #FFFFFF;
-        h3{
+        margin-left: 50px;
+        h3{ 
             color: #ECE8E1;
             text-transform:uppercase;
             font-size: 1.4rem;

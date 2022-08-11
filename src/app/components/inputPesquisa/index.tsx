@@ -1,14 +1,18 @@
 import { Container } from "./inputStyle"
 import { AiOutlineSearch } from 'react-icons/ai';
 import { BntPrincipal } from "../bntPrincipal";
-import { useContext } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 import { AgentsContext } from "../../context/AgentsValorantContext";
 import { CardAgentes } from "../cardDosAgentes";
 
-export const InputPesquisa = () => {
+interface IInputProps{
+    pesquisarAgente:string,
+    onChange: (novoValor:string)=> void
+}
+export const InputPesquisa:React.FC<IInputProps> = (props) => {
 
-    const {agentes} = useContext(AgentsContext);
-
+    const {agentes,setAgentes} = useContext(AgentsContext);
+    
     return(
         <Container>
             <div>
@@ -16,12 +20,10 @@ export const InputPesquisa = () => {
                 <input 
                     type="text" 
                     placeholder="Pesquise um Agente"
+                    value={props.pesquisarAgente}
+                    onChange={(e)=> props.onChange(e.target.value)}
                 />
-            </div>
-            <BntPrincipal onClickBnt={()=>{alert("asdsad")}}>
-                Pesquisar
-            </BntPrincipal>
-            
+            </div>            
         </Container>
     )
 }

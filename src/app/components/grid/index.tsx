@@ -1,5 +1,5 @@
-import React from "react";
-import { useContext, useState } from "react";
+import React, { useState } from "react";
+import { useContext } from "react";
 import { AgentsContext } from "../../context/AgentsValorantContext";
 import { FavoritosContext } from "../../context/favoritosAgenteContext";
 import { CardAgentes } from "../cardDosAgentes"
@@ -13,6 +13,12 @@ interface IGridProps{
 export const GridCards: React.FC<IGridProps> = (props)=>{
     const {agentes} = useContext(AgentsContext);
     const {favoritos} = useContext(FavoritosContext)
+    const [pesquisar, setPesquisar] = useState("")
+
+    const AgentesFiltrados = 
+        agentes
+            .filter((agente)=> 
+                agente.displayName.toLocaleLowerCase().includes(pesquisar.toLocaleLowerCase()))
 
     console.log(agentes)
     return(
@@ -39,13 +45,17 @@ export const GridCards: React.FC<IGridProps> = (props)=>{
                 </Container>
                 :
                 <div>
-                    <InputPesquisa />
+                    <InputPesquisa 
+                        pesquisarAgente={pesquisar} 
+                        onChange={(evento) =>setPesquisar(evento)}
+                    />
                     <Container>
-                        {agentes.map((agente) => {
-                            return (
-                                <div>
+                        {AgentesFiltrados
+                            .filter((agentes)=> agentes.uuid !== "320b2a48-4d9b-a075-30f1-1f93a9b638fa")
+                            .map((agente)=>{
+                                return(
                                     <CardAgentes
-                                        key={agente.uuid}
+                                        key={agente.displayNam}
                                         nome={agente.displayName}
                                         funcao={"iniciadora"}
                                         biografia={agente.description}
@@ -53,9 +63,10 @@ export const GridCards: React.FC<IGridProps> = (props)=>{
                                         imagemModal={agente.fullPortrait} 
                                         tipoModal={"add"}
                                     />
-                                </div>
-                            );
-                        })}
+                                )
+                            })
+                        
+                        }
                     </Container>
                 </div>
             }
