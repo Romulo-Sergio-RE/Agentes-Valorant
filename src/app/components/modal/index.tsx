@@ -45,9 +45,7 @@ export const Modal:React.FC<ImodalProps> =(props)=>{
                 </Container>
                 :
                 <Container>
-                    <div className="imagem-agente">
-
-                    </div>
+                    <img src={props.imagemAgenteModal} className="imagem-agente" alt={"imagem-do-agente-card"}/>
                     <div className="info-agentes">
                         <p>Nome: <span>{props.nomeAgente}</span></p>
                         <p>Função: <span>Iniciadora</span></p>
