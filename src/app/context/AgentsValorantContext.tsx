@@ -8,12 +8,12 @@ type ContextProps = {
     setAgentes: React.Dispatch<React.SetStateAction<any[]>>,
 };
 
-const teste1 ={
+const defautValue ={
     agentes: [],
     setAgentes: ()=> void[],
 }
 
-export const AgentsContext = createContext<ContextProps>(teste1);
+export const AgentsContext = createContext<ContextProps>(defautValue);
 
 export const AgentsProvider = ({children}:AgenstsContextProps)=>{
     const[agentes, setAgentes] = useState<any[]>([]);

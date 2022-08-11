@@ -10,6 +10,11 @@ export const Container =  styled.div`
     flex-direction: column;
     border-radius: 20px;
     margin: 20px;
+    transition: 2s all;
+    :hover{
+        transform: scale(1.1);
+        cursor: pointer;
+    }
     .div-imagem{
         width: 235px;
         height: 197px;

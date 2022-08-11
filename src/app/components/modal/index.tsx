@@ -1,59 +1,72 @@
 import { BntPrincipal } from "../bntPrincipal"
-import { Container } from "./modalStyle"
+import { Container,ContainerModal } from "./modalStyle"
 import { TiTimes } from 'react-icons/ti';
+import { useContext } from "react";
+import { FavoritosContext } from "../../context/favoritosAgenteContext";
 
 interface ImodalProps{
-    tipoModal?: string;
+    tipoModal?: string,
+    onClose?: ()=> void,
+    nomeAgente: string,
+    biografiaAgente: string,
+    imagemAgenteModal: string,
+    imagemAgenteCard: string,
 }
 
 export const Modal:React.FC<ImodalProps> =(props)=>{
+
+    const {favoritos, setfavoritos} = useContext(FavoritosContext);
+
+    const addFavoritosAgentes = ()=>{
+        setfavoritos([...favoritos, props])
+    }
+    console.log(favoritos)
     return(
-        <>
-        {props.tipoModal === "add"?
-            <Container>
-                <div className="imagem-agente">
-
-                </div>
-                <div className="info-agentes">
-                    <p>Nome: <span>Fade</span></p>
-                    <p>Função: <span>Iniciadora</span></p>
-                    <p>Biografia: </p>
-                    <p><span>Fade, uma caçadora de recompensas turca, usa o poder dos pesadelos para capturar os segredos dos inimigos. Personificando o próprio terror, ela persegue os alvos e revela seus medos mais profundos para, depois, destruí-los na escuridão.</span></p>
-                    <div className="ButtonP">
-                        <BntPrincipal onClickBnt={()=>{alert("jjjjjjjj")}}>
-                            Add Favoritos
-                        </BntPrincipal>
+        <ContainerModal>
+            {props.tipoModal === "add"?
+                <Container >
+                    <img src={props.imagemAgenteModal} className="imagem-agente" alt={"imagem-do-agente-card"}/>
+                    <div className="info-agentes">
+                        <p>Nome: <span>{props.nomeAgente}</span></p>
+                        <p>Função: <span>Iniciadora</span></p>
+                        <p>Biografia: </p>
+                        <p><span>{props.biografiaAgente}</span></p>
+                        <div className="ButtonP" >
+                            <BntPrincipal onClickBnt={addFavoritosAgentes}>
+                                Add Favoritos
+                            </BntPrincipal>
+                        </div>
                     </div>
-                </div>
-                <TiTimes 
-                    onClick={()=>{alert("delete")}} 
-                    className="icon"  
-                    size={32}
-                />
-            </Container>
-            :
-            <Container>
-                <div className="imagem-agente">
+                    <TiTimes 
+                        onClick={props.onClose} 
+                        className="icon"  
+                        size={32}
+                    />
+                </Container>
+                :
+                <Container>
+                    <div className="imagem-agente">
 
-                </div>
-                <div className="info-agentes">
-                    <p>Nome: <span>Fade</span></p>
-                    <p>Função: <span>Iniciadora</span></p>
-                    <p>Biografia: </p>
-                    <p><span>Fade, uma caçadora de recompensas turca, usa o poder dos pesadelos para capturar os segredos dos inimigos. Personificando o próprio terror, ela persegue os alvos e revela seus medos mais profundos para, depois, destruí-los na escuridão.</span></p>
-                    <div className="ButtonP">
-                        <BntPrincipal onClickBnt={()=>{alert("jjjjjjjj")}}>
-                            Remover Favoritos
-                        </BntPrincipal>
                     </div>
-                </div>
-                <TiTimes 
-                    onClick={()=>{alert("delete")}} 
-                    className="icon"  
-                    size={32}
-                />
-            </Container>
-        }
-        </>
+                    <div className="info-agentes">
+                        <p>Nome: <span>{props.nomeAgente}</span></p>
+                        <p>Função: <span>Iniciadora</span></p>
+                        <p>Biografia: </p>
+                        <p><span>{props.biografiaAgente}</span></p>
+                        <div className="ButtonP">
+                            <BntPrincipal onClickBnt={()=>{}}>
+                                Remover Favoritos
+                            </BntPrincipal>
+                        </div>
+                    </div>
+                    <TiTimes 
+                        onClick={props.onClose}  
+                        className="icon"  
+                        size={32}
+                    />
+                </Container>
+            }
+        </ContainerModal>
     )
 }
+
