@@ -18,7 +18,7 @@ export const Header:React.FC<HeaderProps> =(props)=>{
     }
     return(
         <Container>
-            <div className="logo-valorant">
+            <div className="logo-valorant" onClick={BntVoltarHomePage}>
                 <h3>Valorant</h3>
             </div>
             <div className="titulo-agentes">

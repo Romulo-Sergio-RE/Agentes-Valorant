@@ -22,8 +22,10 @@ export const Container = styled.div`
     display: flex;
     .imagem-agente{
         width: 400px;
-        height: 600px;
-        background-color: #7E7E7E;
+        height: 580px;
+        background: #FF4655; 
+        background: -webkit-linear-gradient(to right, #FF4655, #111111); 
+        background: linear-gradient(to right, #FF4655, #111111);   
         border-radius: 20px;
     }
     .info-agentes{
@@ -52,7 +54,7 @@ export const Container = styled.div`
         }
     }
     .icon{
-        margin-top: 20px;
+        margin: 20px 20px 0 0;
         color:#FF4655;
         cursor: pointer;
     }

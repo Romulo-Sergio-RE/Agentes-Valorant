@@ -13,6 +13,7 @@ export const Container = styled.div`
         text-transform:uppercase;
         font-size: 1.8rem;
         font-weight: 700;
+        cursor: pointer;
     }
     .titulo-agentes{
         border-bottom: 1px solid #FFFFFF;

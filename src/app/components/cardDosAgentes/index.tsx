@@ -26,13 +26,14 @@ export const CardAgentes:React.FC<IInfoAgentes> = (props)=>{
                 biografiaAgente={props.biografia}
                 imagemAgenteCard={props.imagem}
                 imagemAgenteModal={props.imagemModal}
+                funcao={props.funcao}
             />
             : 
             null
         }
         <Container onClick={() => setIsModalAberto(true)} backColor={props.corImageDeFundo}>
             <img src={props.imagem} className="div-imagem" alt={"imagem-do-agente-card"}/>
-            <div>
+            <div className="nome-funcao-agente">
                 <p className="titulo-nome-funcao">Nome: <span>{props.nome}</span></p>
                 <p className="titulo-nome-funcao">Função: <span>{props.funcao}</span></p>
             </div>

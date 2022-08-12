@@ -12,6 +12,7 @@ interface ImodalProps{
     biografiaAgente: string,
     imagemAgenteModal: string,
     imagemAgenteCard: string,
+    funcao: string
 }
 
 export const Modal:React.FC<ImodalProps> =(props)=>{
@@ -43,7 +44,7 @@ export const Modal:React.FC<ImodalProps> =(props)=>{
                     />
                     <div className="info-agentes">
                         <p>Nome: <span>{props.nomeAgente}</span></p>
-                        <p>Função: <span>Iniciadora</span></p>
+                        <p>Função: <span>{props.funcao}</span></p>
                         <p>Biografia: </p>
                         <p><span>{props.biografiaAgente}</span></p>
                         <div className="ButtonP" onClick={props.onClose} >
@@ -68,7 +69,7 @@ export const Modal:React.FC<ImodalProps> =(props)=>{
                     />
                     <div className="info-agentes">
                         <p>Nome: <span>{props.nomeAgente}</span></p>
-                        <p>Função: <span>Iniciadora</span></p>
+                        <p>Função: <span>{props.funcao}</span></p>
                         <p>Biografia: </p>
                         <p><span>{props.biografiaAgente}</span></p>
                         <div className="ButtonP">
