@@ -1,8 +1,9 @@
 import { BntPrincipal } from "../bntPrincipal"
 import { Container,ContainerModal } from "./modalStyle"
 import { TiTimes } from 'react-icons/ti';
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FavoritosContext } from "../../context/favoritosAgenteContext";
+import { ModalErroSucesso } from "../modalErroSucesso";
 
 interface ImodalProps{
     tipoModal?: string,
@@ -19,16 +20,17 @@ export const Modal:React.FC<ImodalProps> =(props)=>{
 
     const addFavoritosAgentes = ()=>{
         if(favoritos.find((a)=> a.nomeAgente === props.nomeAgente)){
-            alert("Esse Agente ja foi FAVORITADO")
+            alert("esse agente ja foi adicionado")
         }else{
             setfavoritos([...favoritos, props])
+            alert("esse agente foi adicionado com sucesso")
         }
     }
 
     const removerFavoritosAgentes = ()=>{
         setfavoritos(favoritos.filter((agente)=> agente.nomeAgente !== props.nomeAgente))
+        alert("esse agente foi removido com sucesso")
     }
-
     console.log(favoritos)
     return(
         <ContainerModal>

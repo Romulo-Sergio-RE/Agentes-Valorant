@@ -1,7 +1,6 @@
-import React, { useContext, useState } from "react"
-import { FavoritosContext } from "../../context/favoritosAgenteContext"
+import { useState } from "react"
 import { Modal } from "../modalInfoAgente"
-import { Container, ContainerTeste } from "./cardStyle"
+import { Container } from "./cardStyle"
 
 interface IInfoAgentes{
     nome: string,
@@ -9,7 +8,8 @@ interface IInfoAgentes{
     imagem: string,
     biografia: string,
     imagemModal: string,
-    tipoModal: string
+    tipoModal: string,
+    corImageDeFundo: string,
 }
 
 export const CardAgentes:React.FC<IInfoAgentes> = (props)=>{
@@ -30,7 +30,7 @@ export const CardAgentes:React.FC<IInfoAgentes> = (props)=>{
             : 
             null
         }
-        <Container onClick={() => setIsModalAberto(true)} className="a">
+        <Container onClick={() => setIsModalAberto(true)} backColor={props.corImageDeFundo}>
             <img src={props.imagem} className="div-imagem" alt={"imagem-do-agente-card"}/>
             <div>
                 <p className="titulo-nome-funcao">Nome: <span>{props.nome}</span></p>

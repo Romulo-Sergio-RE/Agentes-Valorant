@@ -18,9 +18,9 @@ export const GridCards: React.FC<IGridProps> = (props)=>{
     const AgentesFiltrados = 
         agentes
             .filter((agente)=> 
-                agente.displayName.toLocaleLowerCase().includes(pesquisar.toLocaleLowerCase()))
+                agente.displayName.toLocaleLowerCase().includes(pesquisar.toLocaleLowerCase()));
 
-    console.log(agentes)
+    console.log(agentes.filter((agentes)=> agentes.uuid !== "320b2a48-4d9b-a075-30f1-1f93a9b638fa"))
     return(
         <>
             {props.gridPage.toLocaleLowerCase() === "favoritos"?
@@ -32,11 +32,12 @@ export const GridCards: React.FC<IGridProps> = (props)=>{
                                     <CardAgentes 
                                         key={favorito.nomeAgente} 
                                         nome={favorito.nomeAgente} 
-                                        funcao={"iniciadora"}
+                                        funcao={"i"}
                                         biografia={favorito.biografiaAgente}
                                         imagem={favorito.imagemAgenteCard}
                                         imagemModal={favorito.imagemAgenteModal}
                                         tipoModal={""}
+                                        corImageDeFundo={favoritos?"#FF4655":"#111111"}
                                     />
                                 </div>
                             )
@@ -51,21 +52,23 @@ export const GridCards: React.FC<IGridProps> = (props)=>{
                     />
                     <Container>
                         {AgentesFiltrados
-                            .filter((agentes)=> agentes.uuid !== "320b2a48-4d9b-a075-30f1-1f93a9b638fa")
+                            .filter((agentes)=> agentes.uuid !== "ded3520f-4264-bfed-162d-b080e2abccf9")
                             .map((agente)=>{
+                                console.log(agente.role.displayName)
                                 return(
                                     <CardAgentes
-                                        key={agente.displayNam}
+                                        key={agente.displayName}
                                         nome={agente.displayName}
-                                        funcao={"iniciadora"}
+                                        funcao={agente.role.displayName}
                                         biografia={agente.description}
                                         imagem={agente.displayIconSmall}
                                         imagemModal={agente.fullPortrait} 
                                         tipoModal={"add"}
+                                        corImageDeFundo={favoritos.find((a)=>a.nomeAgente === agente.displayName)?"#FF4655":"#ECE8E1"}
                                     />
                                 )
                             })
-                        
+                            
                         }
                     </Container>
                 </div>
