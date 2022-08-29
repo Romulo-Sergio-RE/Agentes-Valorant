@@ -5,7 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { FavoritosContext } from "../../context/favoritosAgenteContext";
 import { ModalErroSucesso } from "../modalErroSucesso";
 
-interface ImodalProps{
+type ImodalProps={
     tipoModal?: string,
     onClose?: ()=> void,
     nomeAgente: string,
