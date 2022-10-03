@@ -1,7 +1,6 @@
 import { useContext, useEffect, } from "react";
 import { GridCards } from "../../components/grid";
 import { Header } from "../../components/header"
-import { ModalErroSucesso } from "../../components/modalErroSucesso";
 import { AgentsContext } from "../../context/AgentsValorantContext";
 import { Container } from "./homePageStyle"
 

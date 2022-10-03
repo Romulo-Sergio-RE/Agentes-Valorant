@@ -20,7 +20,6 @@ export const GridCards: React.FC<IGridProps> = (props)=>{
             .filter((agente)=> 
                 agente.displayName.toLocaleLowerCase().includes(pesquisar.toLocaleLowerCase()));
 
-    console.log(favoritos.filter((agentes)=> agentes.uuid !== "320b2a48-4d9b-a075-30f1-1f93a9b638fa"))
     return(
         <>
             {props.gridPage.toLocaleLowerCase() === "favoritos"?
