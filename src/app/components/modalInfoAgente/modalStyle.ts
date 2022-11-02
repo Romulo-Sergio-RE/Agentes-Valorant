@@ -22,7 +22,7 @@ export const Container = styled.div`
     display: flex;
     .imagem-agente{
         width: 400px;
-        height: 580px;
+        height: 600px;
         background: #FF4655; 
         background: -webkit-linear-gradient(to right, #FF4655, #111111); 
         background: linear-gradient(to right, #FF4655, #111111);   

@@ -20,16 +20,14 @@ export const Modal:React.FC<ImodalProps> =(props)=>{
 
     const addFavoritosAgentes = ()=>{
         if(favoritos.find((a)=> a.nomeAgente === props.nomeAgente)){
-            alert("esse agente ja foi adicionado")
+            alert("asdasdas")
         }else{
             setfavoritos([...favoritos, props])
-            alert("esse agente foi adicionado com sucesso")
         }
     }
 
     const removerFavoritosAgentes = ()=>{
         setfavoritos(favoritos.filter((agente)=> agente.nomeAgente !== props.nomeAgente))
-        alert("esse agente foi removido com sucesso")
     }
 
     return(
