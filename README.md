@@ -12,3 +12,7 @@ O projeto foi criado para poder aprender o uso de API onde utilizei a api do val
     - React.js
 
 ## Video do Projeto
+
+
+https://user-images.githubusercontent.com/89258510/203560810-19364d73-a6ca-4877-abda-260533a3c8e9.mp4
+
